@@ -37,7 +37,7 @@ public class Read_writeExcel {
     {
     	System.out.println(Pagetitle);
 
-    FileOutputStream output = new FileOutputStream("C:\\Users\\ashok.k\\Desktop\\Output-login.xls");
+    FileOutputStream output = new FileOutputStream(path);
     workbookcopy = Workbook.createWorkbook(output);
     writablesh = workbookcopy.createSheet("Sheet1", 0);
     System.out.println("------ New sheet created ------");
@@ -81,7 +81,7 @@ public class Read_writeExcel {
         System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
         
         WebDriver driver = new FirefoxDriver();
-        FileInputStream fs = new FileInputStream("C:\\Users\\ashok.k\\Desktop\\Book1.xls");
+        FileInputStream fs = new FileInputStream(path);
         Workbook wb = Workbook.getWorkbook(fs);
         
         Sheet sh = wb.getSheet("Sheet1");
