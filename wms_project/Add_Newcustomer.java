@@ -37,7 +37,7 @@ public class Add_Newcustomer {
 	
 	public static void addcustomerwrite(Sheet sh, String bodyText[]) throws IOException, RowsExceededException, WriteException
 	{
-		FileOutputStream FOS = new FileOutputStream("C:\\Users\\ashok.k\\Desktop\\Output_Add_P2customer.xls");
+		FileOutputStream FOS = new FileOutputStream(path);
 		workbookcopy = Workbook.createWorkbook(FOS);
 		writablesh = workbookcopy.createSheet("Sheet1", 0);
 		Label lb1 = new Label(0,0,"Firstname");
@@ -108,15 +108,15 @@ public class Add_Newcustomer {
 		
 		driver = new FirefoxDriver();
 	    driver.get("https://meanwms.p2staging.us/login");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys("lakshmi.prasanna@position2.com");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys("prasanna1612");
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys(username);
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys(password);
 	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/button")).click();
 	    driver.findElement(By.xpath("html/body/div[1]/nav/aside/div[2]/div[2]/ul/li[2]/a")).click();
 	    driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div[1]/a")).click();
 	    String Pagetitle = driver.getTitle();
 	    System.out.println("Page title is " +Pagetitle);
 	    
-	    FileInputStream FIS = new FileInputStream("C:\\Users\\ashok.k\\Desktop\\Addcustomer.xls");
+	    FileInputStream FIS = new FileInputStream(path);
 	    Workbook wb = Workbook.getWorkbook(FIS);
 	    Sheet sh = wb.getSheet("Sheet1");
 	    System.out.println(sh.getRows());
