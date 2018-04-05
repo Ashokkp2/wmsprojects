@@ -31,9 +31,9 @@ import java.net.URL;
 
 public class Addcustomer_browserstack {
 	
-	  public static final String USERNAME = "harish56";
-	  public static final String AUTOMATE_KEY = "X75fM7naNkNxJuTqeH6X";
-	  public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	  public static final String USERNAME =USERNAME;
+	  public static final String AUTOMATE_KEY = Automate_Key;
+	  public static final String URL = path;
 
 	static String Expectedtitle = "WMS Dashboard | p2 users";
 	static String Actualurl;
@@ -44,7 +44,7 @@ public class Addcustomer_browserstack {
 	
 	public static void addcustomerwrite(Sheet sh, String bodyText[]) throws IOException, RowsExceededException, WriteException
 	{
-		FileOutputStream FOS = new FileOutputStream("C:\\Users\\ashok.k\\Desktop\\Output_Add_P2customer.xls");
+		FileOutputStream FOS = new FileOutputStream(path);
 		workbookcopy = Workbook.createWorkbook(FOS);
 		writablesh = workbookcopy.createSheet("Sheet1", 0);
 		Label lb1 = new Label(0,0,"Firstname");
@@ -108,16 +108,6 @@ public class Addcustomer_browserstack {
 
 	public static void main(String[] args) throws BiffException, IOException, InterruptedException, RowsExceededException, WriteException {
 		DesiredCapabilities caps = new DesiredCapabilities();
-//	    caps.setCapability("browser", "Chrome");
-//	    caps.setCapability("browser_version", "62.0");
-//	    caps.setCapability("os", "Windows");
-//	    caps.setCapability("os_version", "10");
-//	    caps.setCapability("resolution", "1280x1024");
-//		caps.setCapability("browser", "Firefox");
-//	    caps.setCapability("browser_version", "59.0 beta");
-//	    caps.setCapability("os", "Windows");
-//	    caps.setCapability("os_version", "10");
-//	    caps.setCapability("resolution", "2048x1536");
 
 	    caps.setCapability("browser", "Edge");
 	    caps.setCapability("browser_version", "16.0");
@@ -127,8 +117,8 @@ public class Addcustomer_browserstack {
 
 	    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
 	    driver.get("https://meanwms.p2staging.us/login");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys("lakshmi.prasanna@position2.com");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys("prasanna1612");
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys(username);
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys(password);
 	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/button")).click();
 	    driver.findElement(By.xpath("html/body/div[1]/nav/aside/div[2]/div[2]/ul/li[2]/a")).click();
 	    driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div[1]/a")).click();
