@@ -30,7 +30,7 @@ public class Add_P2user {
 	static String Expectedtitle = "WMS Dashboard | p2 users";
 	static String Actualurl;
 	static String Expectedurl;
-	public static final String Path_TestData = "C:\\Users\\ashok.k\\workspace\\Selenium\\src\\testdata\\Add_p2user.xls";
+	public static final String Path_TestData = path;
 	public static final String File_TestData = "Add_p2user.xls";
 	public static WritableSheet writablesh;
 	public static WritableWorkbook workbookcopy;
@@ -39,7 +39,7 @@ public class Add_P2user {
 	
 	public static void addp2user(Sheet sh, String bodyText[])throws JXLException, IOException
 	{
-		FileOutputStream output = new FileOutputStream("C:\\Users\\ashok.k\\workspace\\Selenium\\src\\testdata\\Output-Add_P2user.xls");
+		FileOutputStream output = new FileOutputStream(path);
 	    workbookcopy = Workbook.createWorkbook(output);
 	    System.out.println("-------Sheet Created--------");
 	    writablesh = workbookcopy.createSheet("Sheet1", 0);
@@ -97,8 +97,8 @@ public class Add_P2user {
 		
 	    driver = new FirefoxDriver();
 	    driver.get("https://meanwms.p2staging.us/login");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys("lakshmi.prasanna@position2.com");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys("prasanna1612");
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys(username);
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys(password);
 	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/button")).click();
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("html/body/div[1]/nav/aside/div[2]/div[2]/ul/li[3]/a")).click();
