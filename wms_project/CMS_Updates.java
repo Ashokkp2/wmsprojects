@@ -26,13 +26,13 @@ public class CMS_Updates {
 		
 	    driver = new FirefoxDriver();
 	    driver.get("https://meanwms.p2staging.us/login");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys("lakshmi.prasanna@position2.com");
-	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys("prasanna1612");
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[1]/input")).sendKeys(username);
+	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/div[2]/input")).sendKeys(password);
 	    driver.findElement(By.xpath("html/body/div[1]/div/div[2]/form/button")).click();
 	    driver.findElement(By.xpath("html/body/div[1]/nav/aside/div[2]/div[2]/ul/li[5]/a")).click();
 	    Thread.sleep(3000);
 	    
-	    FileInputStream read = new FileInputStream("C:\\Users\\ashok.k\\Desktop\\CMS_Update.xls");
+	    FileInputStream read = new FileInputStream(path);
 	    Workbook wb = Workbook.getWorkbook(read);
 	    Sheet sh = wb.getSheet("Sheet1");
 	    System.out.println(sh.getRows());
